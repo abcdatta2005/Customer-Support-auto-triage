@@ -10,7 +10,7 @@ function TicketPredict() {
     if (!ticket.trim()) return;
 
     setLoading(true);
-    const backendUrl = process.env.REACT_APP_BACKEND_URL || "http://localhost:5000";
+    const backendUrl = process.env.REACT_APP_BACKEND_URL;
     console.log(backendUrl);
     const res = await fetch(`${backendUrl}/api/predict`, {
       method: "POST",
