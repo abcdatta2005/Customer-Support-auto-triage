@@ -10,7 +10,9 @@ function TicketPredict() {
     if (!ticket.trim()) return;
 
     setLoading(true);
-    const res = await fetch("http://localhost:5000/api/predict", {
+    const backendUrl = process.env.REACT_APP_BACKEND_URL || "http://localhost:5000";
+    console.log(backendUrl);
+    const res = await fetch(`${backendUrl}/api/predict`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ ticket })
